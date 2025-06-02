@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Redirigiendo a Beckett Authentication</title>
+  <script>
+    window.onload = function() {
+      const params = new URLSearchParams(window.location.search);
+      const codigo = params.get('codigo');
+
+      if (codigo) {
+        const url = 'https://www.beckett-authentication.com/verify-certificate?certificate_number=' + encodeURIComponent(codigo);
+        window.location.href = url;
+      } else {
+        document.body.innerHTML = '<h2>No se especificó ningún código.</h2>';
+      }
+    };
+  </script>
+</head>
+<body>
+  <h2>Redirigiendo...</h2>
+</body>
+</html>
